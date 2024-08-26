@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwl7a0yywe7gc"]
+
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_20bd8"]
+[ext_resource type="Texture2D" uid="uid://b0pp1mb6pbh8h" path="res://assets/Pirate Treasure/Sprites/Gold Coin/01.png" id="1_ch7np"]
+[ext_resource type="Texture2D" uid="uid://dw2e8mc08wcu0" path="res://assets/Pirate Treasure/Sprites/Gold Coin/02.png" id="2_ho5by"]
+[ext_resource type="Texture2D" uid="uid://cdrby2wysh3so" path="res://assets/Pirate Treasure/Sprites/Gold Coin/03.png" id="3_nsv8w"]
+[ext_resource type="Texture2D" uid="uid://bt4fp0y2bn8rw" path="res://assets/Pirate Treasure/Sprites/Gold Coin/04.png" id="4_fx20r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_quj8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ch7np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ho5by")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nsv8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fx20r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xcf5o"]
+radius = 5.09902
+
+[node name="coin" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_20bd8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_quj8h")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_xcf5o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

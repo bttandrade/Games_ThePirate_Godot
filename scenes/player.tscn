@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2dcyi1yi8s03"]
+
+[ext_resource type="Texture2D" uid="uid://drhcnalasafmc" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" id="1_gxlb8"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_q1jki"]
+[ext_resource type="Texture2D" uid="uid://bvxcvk2vu83ku" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 02.png" id="2_p24kv"]
+[ext_resource type="Texture2D" uid="uid://mdpe7s66r7kc" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 03.png" id="3_55rx7"]
+[ext_resource type="Texture2D" uid="uid://but3ui5fhrjw1" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 04.png" id="4_cupns"]
+[ext_resource type="Texture2D" uid="uid://bw45r4u0vwc00" path="res://assets/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 05.png" id="5_2bt66"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jdohl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gxlb8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_p24kv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_55rx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cupns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2bt66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amgiw"]
+size = Vector2(14, 18)
+
+[node name="player" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 2
+script = ExtResource("1_q1jki")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -12)
+sprite_frames = SubResource("SpriteFrames_jdohl")
+autoplay = "default"
+frame_progress = 0.560649
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -9)
+shape = SubResource("RectangleShape2D_amgiw")
